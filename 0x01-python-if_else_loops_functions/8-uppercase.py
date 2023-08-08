@@ -4,7 +4,7 @@ def uppercase(str):
         if ord(letter) >= ord('a') and ord(letter) <= ord('z'):
             letter = chr(ord(letter) - 32)
         print("{}".format(letter), end="")
-    print()
+    print("{}".format('\n'), end="")
 
 
 uppercase("hello 98 World")
