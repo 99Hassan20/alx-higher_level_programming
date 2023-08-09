@@ -37,12 +37,15 @@ listint_t *tmp = *head;
 if (!new)
 	return (NULL);
 new->n = number;
+new->next = NULL;
 if (!is_list_sorted(*head))
 {
 	free(new);
 	return (NULL);
 }
-if (number <= (*head)->n)
+if (!*head)
+	*head = new;
+else if (number <= (*head)->n)
 {
 	new->next = *head;
 	*head = new;
