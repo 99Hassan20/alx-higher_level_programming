@@ -42,7 +42,13 @@ if (!is_list_sorted(*head))
 	free(new);
 	return (NULL);
 }
-
+if (number <= (*head)->n)
+{
+	new->next = *head;
+	*head = new;
+}
+else
+{
 while (tmp && tmp->next)
 {
 	if (number >= tmp->n && number <= tmp->next->n)
@@ -51,5 +57,6 @@ while (tmp && tmp->next)
 }
 new->next = tmp->next;
 tmp->next = new;
+}
 return (new);
 }
