@@ -17,7 +17,7 @@ if (!array)
 return (NULL);
 while (tmp)
 {
-y[i] = tmp->n;
+array[i] = tmp->n;
 i++;
 tmp = tmp->next;
 }
