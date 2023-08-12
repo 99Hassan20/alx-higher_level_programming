@@ -86,5 +86,6 @@ return (0);
 last--;
 begin++;
 }
+free(array);
 return (1);
 }
