@@ -1,6 +1,31 @@
 #include "lists.h"
 
 /**
+ * list_to_array - converts a linked list to an array
+ * @head: the head of the list
+ * @size: the size of the array
+ * Return: return an array
+ */
+
+int *list_to_array(listint_t *head, int size)
+{
+int i = 0;
+int *array = malloc(sizeof(int) * size);
+
+listint_t *tmp = head;
+if (!array)
+return (NULL);
+while (tmp)
+{
+y[i] = tmp->n;
+i++;
+tmp = tmp->next;
+}
+return (array);
+}
+
+
+/**
  *get_list_size - get the size of the list
  *@head: the head of the list
  *Return: return the size of the list
@@ -49,15 +74,17 @@ return (-1);
 
 int is_palindrome(listint_t **head)
 {
-listint_t *tmp = *head;
-int last_index = get_list_size(*head) - 1;
+int list_size = get_list_size(*head);
+int *array = list_to_array(*head, list_size);
+int last = list_size - 1;
+int begin = 0;
 
-while (tmp)
+while (begin < last)
 {
-if (tmp->n != get_element_at(*head, last_index))
+if (array[begin] != array[last])
 return (0);
-last_index--;
-tmp = tmp->next;
+last--;
+begin++;
 }
 return (1);
 }
