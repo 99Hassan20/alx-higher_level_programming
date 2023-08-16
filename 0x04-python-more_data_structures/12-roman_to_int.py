@@ -8,7 +8,9 @@ def is_roman_string(str):
 
 
 def roman_to_int(roman_string):
-    if not roman_string or not is_roman_string(roman_string):
+    if not roman_string\
+            or not is_roman_string(roman_string)\
+            or type(roman_string) is not str:
         return 0
     roman_numbers = {
             'I': 1,
