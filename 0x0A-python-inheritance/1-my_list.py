@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Module that contains a function that returns the list of available  attributes and methods of an object """ 
+""" new class MyList that inherits from list """
 
 
 class MyList(list):

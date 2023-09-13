@@ -2,6 +2,7 @@
 
 """ Module that contains a class BaseGeometry """
 
+
 class BaseGeometry:
     """ Class that contains methods area and integer_validator """
     def area(self):
