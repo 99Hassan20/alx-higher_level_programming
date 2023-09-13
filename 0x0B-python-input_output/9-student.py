@@ -3,6 +3,7 @@
 
 
 class Student:
+    """Defines a student"""
     def __init__(self, first_name, last_name, age):
         """Initializes an instance of the Student class"""
         self.first_name = first_name
