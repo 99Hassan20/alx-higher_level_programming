@@ -4,4 +4,6 @@
 
 class BaseGeometry:
     """ Class that contains methods area and integer_validator """
-    pass
+    def area(self):
+        """ Method that raises an exception """
+        raise Exception("area() is not implemented")
