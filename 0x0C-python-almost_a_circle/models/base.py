@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 """ Base class for all models"""
+import json
 
 
 class Base:
@@ -15,3 +16,9 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = self.__nb_objects
+
+    def to_json_string(lis_dictionaries):
+        """ Return JSON string representation of list of dictionaries"""
+        if lis_dictionaries is None or lis_dictionaries == []:
+            return "[]"
+        return json.dumps(lis_dictionaries)
