@@ -2,6 +2,7 @@
 
 """ Base class for all models"""
 import json
+import csv
 
 
 class Base:
@@ -66,9 +67,14 @@ class Base:
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """ Save to csv file"""
-        list_dicts = []
-        if list_objs is not None:
-            for obj in list_objs:
-                list_dicts.append(obj.to_dictionary())
         with open(cls.__name__ + ".csv", "w") as f:
-            f.write(cls.to_json_string(list_dicts))
+            if list_objs is not None:
+                if cls.__name__ == "Rectangle":
+                    for obj in list_objs:
+                        f.write("{},{},{},{},{}\n".format(obj.id, obj.width,
+                                                          obj.height, obj.x,
+                                                          obj.y))
+                else:
+                    for obj in list_objs:
+                        f.write("{},{},{},{}\n".format(obj.id, obj.size, obj.x,
+                                                       obj.y))
