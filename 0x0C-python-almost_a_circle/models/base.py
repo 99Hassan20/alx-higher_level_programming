@@ -62,3 +62,13 @@ class Base:
                 return list_instances
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ Save to csv file"""
+        list_dicts = []
+        if list_objs is not None:
+            for obj in list_objs:
+                list_dicts.append(obj.to_dictionary())
+        with open(cls.__name__ + ".csv", "w") as f:
+            f.write(cls.to_json_string(list_dicts))
