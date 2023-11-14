@@ -6,10 +6,7 @@ const Square = class Square extends Rectangle {
     super(size, size);
   }
 
-  charPrint (c) {
-    if (typeof c === 'undefined') {
-      c = 'X';
-    }
+  charPrint (c = 'X') {
     for (let i = 0; i < this.height; i++) {
       console.log(c.repeat(this.width));
     }
