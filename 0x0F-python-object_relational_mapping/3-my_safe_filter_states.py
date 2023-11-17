@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-""" takes in arguments and displays all
-values in the states table of hbtn_0e_0_usa where name matches the argument"""
+"""script that takes in arguments and displays all values in the
+states table of hbtn_0e_0_usa where
+name matches the argument. But this time, this one is
+safe from MySQL injections"""
 from sys import argv, exit
 import MySQLdb as mysql
 
@@ -17,8 +19,9 @@ if __name__ == "__main__":
     db = mysql.connect(host=_host, user=_user,
                        passwd=_passwd, db=dbname, port=3306)
     cur = db.cursor()
-    cur.execute("select * from states where\
-                name like binary '{}' order by states.id asc".format(name))
+    query = "select * from states where\
+                name like binary %s order by states.id asc"
+    cur.execute(query, (name,))
     rows = cur.fetchall()
     for row in rows:
         print(row)
