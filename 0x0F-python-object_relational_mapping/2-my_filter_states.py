@@ -18,7 +18,7 @@ if __name__ == "__main__":
                        passwd=_passwd, db=dbname, port=3306)
     cur = db.cursor()
     cur.execute("select * from states where\
-                name='{}' order by states.id asc".format(name))
+                name like binary '{}' order by states.id asc".format(name))
     rows = cur.fetchall()
     for row in rows:
         print(row)
