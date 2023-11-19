@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     Session = sessionmaker(engine)
     session = Session()
-    state = session.query(State).filter(State.name.like(f"%{state}%")).first()
+    state = session.query(State).filter(State.name == state).first()
     if not state:
         print(f"Not found")
     else:
